@@ -13,6 +13,12 @@ router.get("/", function(req, res, next) {
   res.json(response).status(response.status);
 });
 
+/* Default GET JSON for Mongo API */
+router.get("/healthcheck", function(req, res, next) {
+  var response = new jsonResponse("Default /api endpoint for rating-api", 200, []);
+  res.json(response).status(response.status);
+});
+
 /* Get all items */
 router.get("/items", function(req, res, next) {
   Item.find({})
